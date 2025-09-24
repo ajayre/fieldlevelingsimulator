@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldPlan>
+  <Equipment>
+    <SoilSwell>1.30</SoilSwell>
+    <SoilShrink>0.64</SoilShrink>
+    <EquipmentLoadLCY>20.0</EquipmentLoadLCY>
+    <CuttingWidthFt>15.0</CuttingWidthFt>
+    <CuttingWidthM>4.572</CuttingWidthM>
+    <MaxCutDepthM>0.06096</MaxCutDepthM>
+    <MaxLooseDepositInches>6.0</MaxLooseDepositInches>
+    <MaxLooseDepositM>0.1524</MaxLooseDepositM>
+    <FieldEfficiency>0.80</FieldEfficiency>
+    <SpeedModel>
+      <VLoadMs>1.788</VLoadMs>
+      <VHaulMs>2.772</VHaulMs>
+      <VEmptyMs>2.953</VEmptyMs>
+      <VDumpMs>2.235</VDumpMs>
+    </SpeedModel>
+  </Equipment>
+  
+  <Bins>
+    <BinSizeM>0.6096</BinSizeM>
+    <BinDimensions>
+      <Width>50</Width>
+      <Height>30</Height>
+      <TotalBins>1500</TotalBins>
+    </BinDimensions>
+    <FieldBounds>
+      <MinLatitude>36.447671</MinLatitude>
+      <MaxLatitude>36.449451</MaxLatitude>
+      <MinLongitude>-90.720725</MinLongitude>
+      <MaxLongitude>-90.720099</MaxLongitude>
+    </FieldBounds>
+    <BinTable>
+      <Bin>
+          <IndexX>0</IndexX>
+          <IndexY>0</IndexY>
+          <SouthwestCorner>
+            <Latitude>36.447671</Latitude>
+            <Longitude>-90.720725</Longitude>
+          </SouthwestCorner>
+          <NortheastCorner>
+            <Latitude>36.447672</Latitude>
+            <Longitude>-90.720724</Longitude>
+          </NortheastCorner>
+          <Centroid>
+            <Latitude>36.447671</Latitude>
+            <Longitude>-90.720724</Longitude>
+          </Centroid>
+          <CutFillAmountM>0.060960</CutFillAmountM>
+          <ExistingElevationM>125.450</ExistingElevationM>
+        </Bin>
+        <Bin>
+          <IndexX>1</IndexX>
+          <IndexY>0</IndexY>
+          <SouthwestCorner>
+            <Latitude>36.447671</Latitude>
+            <Longitude>-90.720724</Longitude>
+          </SouthwestCorner>
+          <NortheastCorner>
+            <Latitude>36.447672</Latitude>
+            <Longitude>-90.720723</Longitude>
+          </NortheastCorner>
+          <Centroid>
+            <Latitude>36.447671</Latitude>
+            <Longitude>-90.720723</Longitude>
+          </Centroid>
+          <CutFillAmountM>0.055200</CutFillAmountM>
+          <ExistingElevationM>125.445</ExistingElevationM>
+        </Bin>
+        <!-- Additional bins would continue... -->
+    </BinTable>
+  </Bins>
+  
+  <Trips>
+      <Trip>
+        <TripIndex>1</TripIndex>
+        
+        <!-- Start coordinates -->
+        <StartCoordinates>
+          <Latitude>36.447671</Latitude>
+          <Longitude>-90.720099</Longitude>
+        </StartCoordinates>
+        
+        <!-- End coordinates -->
+        <EndCoordinates>
+          <Latitude>36.449451</Latitude>
+          <Longitude>-90.720680</Longitude>
+        </EndCoordinates>
+        
+        <!-- Cut section -->
+        <Cut>
+          <Coordinates>
+            <StartLatitude>36.448588</StartLatitude>
+            <StartLongitude>-90.720099</StartLongitude>
+            <StopLatitude>36.447671</StopLatitude>
+            <StopLongitude>-90.720099</StopLongitude>
+          </Coordinates>
+          <DepthM>0.061</DepthM>
+          <LengthM>102.000</LengthM>
+          <HeadingDeg>104.7</HeadingDeg>
+          
+          <!-- Cut profile with DistanceM/DepthM structure -->
+          <Profile>
+            <ProfileEntry>
+              <DistanceM>0.0</DistanceM>
+              <DepthM>0.060960</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>0.5</DistanceM>
+              <DepthM>0.060960</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>1.0</DistanceM>
+              <DepthM>0.060960</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>1.5</DistanceM>
+              <DepthM>0.060960</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>2.0</DistanceM>
+              <DepthM>0.060960</DepthM>
+            </ProfileEntry>
+            <!-- Additional profile entries would continue... -->
+          </Profile>
+          
+          <!-- Cut bins -->
+          <Bins>
+            <Bin>
+              <IndexX>10</IndexX>
+              <IndexY>15</IndexY>
+              <CutAmountM>0.060960</CutAmountM>
+              <HeadingDeg>104.7</HeadingDeg>
+            </Bin>
+            <Bin>
+              <IndexX>11</IndexX>
+              <IndexY>15</IndexY>
+              <CutAmountM>0.060960</CutAmountM>
+              <HeadingDeg>104.7</HeadingDeg>
+            </Bin>
+            <Bin>
+              <IndexX>12</IndexX>
+              <IndexY>15</IndexY>
+              <CutAmountM>0.060960</CutAmountM>
+              <HeadingDeg>104.7</HeadingDeg>
+            </Bin>
+          </Bins>
+        </Cut>
+        
+        <!-- Fill section -->
+        <Fill>
+          <Coordinates>
+            <StartLatitude>36.449451</StartLatitude>
+            <StartLongitude>-90.720703</StartLongitude>
+            <StopLatitude>36.449451</StopLatitude>
+            <StopLongitude>-90.720680</StopLongitude>
+          </Coordinates>
+          <DepthM>0.023</DepthM>
+          <LengthM>102.000</LengthM>
+          <HeadingDeg>284.7</HeadingDeg>
+          
+          <!-- Fill profile with DistanceM/DepthM structure -->
+          <Profile>
+            <ProfileEntry>
+              <DistanceM>0.0</DistanceM>
+              <DepthM>0.022760</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>0.5</DistanceM>
+              <DepthM>0.022760</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>1.0</DistanceM>
+              <DepthM>0.022760</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>1.5</DistanceM>
+              <DepthM>0.022760</DepthM>
+            </ProfileEntry>
+            <ProfileEntry>
+              <DistanceM>2.0</DistanceM>
+              <DepthM>0.022760</DepthM>
+            </ProfileEntry>
+            <!-- Additional profile entries would continue... -->
+          </Profile>
+          
+          <!-- Fill bins -->
+          <Bins>
+            <Bin>
+              <IndexX>25</IndexX>
+              <IndexY>8</IndexY>
+              <FillAmountM>0.022760</FillAmountM>
+              <HeadingDeg>284.7</HeadingDeg>
+            </Bin>
+            <Bin>
+              <IndexX>26</IndexX>
+              <IndexY>8</IndexY>
+              <FillAmountM>0.022760</FillAmountM>
+              <HeadingDeg>284.7</HeadingDeg>
+            </Bin>
+            <Bin>
+              <IndexX>27</IndexX>
+              <IndexY>8</IndexY>
+              <FillAmountM>0.022760</FillAmountM>
+              <HeadingDeg>284.7</HeadingDeg>
+            </Bin>
+          </Bins>
+        </Fill>
+        
+        <!-- Trip metrics -->
+        <Metrics>
+          <BCY>16.584</BCY>
+          <DistanceM>204.714</DistanceM>
+          <TripTimeSeconds>120.5</TripTimeSeconds>
+          <TotalDistanceM>204.714</TotalDistanceM>
+          <TotalCutBins>3</TotalCutBins>
+          <TotalFillBins>3</TotalFillBins>
+        </Metrics>
+      </Trip>
+    
+    <!-- Additional trips would follow the same structure... -->
+  </Trips>
+</FieldPlan>

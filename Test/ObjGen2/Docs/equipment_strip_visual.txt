@@ -1,0 +1,75 @@
+EQUIPMENT WIDTH STRIP - VISUAL DIAGRAM
+======================================
+
+Equipment: 15ft wide (7.5 bins at 2ft/bin)
+Start Bin: Center of strip
+Direction: Variable (0° to 360°)
+
+EXAMPLE 1: North-South Cutting (0°)
+===================================
+
+    Grid View (Top Down):
+    ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+    │  W  │  W  │  W  │  W  │  S  │  W  │  W  │  W  │ ← Equipment Strip
+    │ -3  │ -2  │ -1  │  0  │ +1  │ +2  │ +3  │ +4  │   (8 bins total)
+    └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+         │     │     │     │     │     │     │
+         │     │     │     │     │     │     └─ +4 (rightmost)
+         │     │     │     │     │     └─ +3
+         │     │     │     │     └─ +2
+         │     │     │     └─ +1
+         │     │     └─ START BIN (w=0)
+         │     └─ -1
+         └─ -2 (leftmost)
+
+    Direction: ↑ (North)
+    Perpendicular: → (East)
+    Strip extends: ←→ (East-West)
+
+EXAMPLE 2: Northeast-Southwest Cutting (45°)
+============================================
+
+    Grid View (Top Down):
+    ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+    │     │     │     │  W  │     │     │     │     │
+    │     │     │  W  │  W  │  W  │     │     │     │
+    │     │  W  │  W  │  W  │  W  │  W  │     │     │
+    │  W  │  W  │  W  │  S  │  W  │  W  │  W  │     │ ← Equipment Strip
+    │     │  W  │  W  │  W  │  W  │  W  │     │     │   (diagonal)
+    │     │     │  W  │  W  │  W  │     │     │     │
+    │     │     │     │  W  │     │     │     │     │
+    └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+
+    Direction: ↗ (Northeast)
+    Perpendicular: ↖ (Northwest)
+    Strip extends: ↖↘ (Northwest-Southeast)
+
+ALGORITHM IMPLEMENTATION:
+========================
+
+1. Start with center bin (START BIN)
+2. Calculate perpendicular direction to cutting direction
+3. Generate strip of bins extending perpendicularly
+4. Process ALL bins in strip simultaneously
+5. Calculate total volume from ALL bins
+
+CODE REFERENCE:
+===============
+
+// Equipment width in bins
+int EquipmentWidthBins = (int)Math.Ceiling(Equipment.CuttingWidthM / 0.6096); // 8 bins
+
+// Generate strip for each position
+for (int w = -EquipmentWidthBins/2; w <= EquipmentWidthBins/2; w++)
+{
+    StripBinX = CenterBinX + (w * PerpX);
+    StripBinY = CenterBinY + (w * PerpY);
+    // Process this bin in the strip
+}
+
+KEY INSIGHT:
+============
+
+The START BIN is the CENTER of a 15ft wide strip.
+The equipment processes the ENTIRE strip, not just the center line.
+This is why volume calculations sum ALL bins in the strip.

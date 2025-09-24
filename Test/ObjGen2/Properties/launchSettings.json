@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ObjGen2": {
+      "commandName": "Project",
+      "commandLineArgs": "-f trips_output.fieldplan"
+    }
+  }
+}

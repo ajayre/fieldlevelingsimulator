@@ -323,17 +323,36 @@ namespace ObjGen2
         private void DrawOperationAnnotations(byte[] imageData, int scaledWidth, int scaledHeight, 
             OperationCoordinates coords, int minX, int minY, bool isCutOperation, FieldPlan fieldPlan)
         {
-            // Find the bins that correspond to the start and end coordinates
-            var startBin = FindBinByCoordinates(coords.StartLatitude, coords.StartLongitude, fieldPlan);
-            var endBin = FindBinByCoordinates(coords.StopLatitude, coords.StopLongitude, fieldPlan);
+            // Use bin coordinates directly if available, otherwise fall back to lat/lon lookup
+            int startBinX, startBinY, endBinX, endBinY;
             
-            if (startBin == null || endBin == null) return;
+            if (coords.StartBinX != 0 || coords.StartBinY != 0 || coords.EndBinX != 0 || coords.EndBinY != 0)
+            {
+                // Use the new bin coordinates directly
+                startBinX = coords.StartBinX;
+                startBinY = coords.StartBinY;
+                endBinX = coords.EndBinX;
+                endBinY = coords.EndBinY;
+            }
+            else
+            {
+                // Fallback to lat/lon lookup for backward compatibility
+                var startBin = FindBinByCoordinates(coords.StartLatitude, coords.StartLongitude, fieldPlan);
+                var endBin = FindBinByCoordinates(coords.StopLatitude, coords.StopLongitude, fieldPlan);
+                
+                if (startBin == null || endBin == null) return;
+                
+                startBinX = startBin.IndexX;
+                startBinY = startBin.IndexY;
+                endBinX = endBin.IndexX;
+                endBinY = endBin.IndexY;
+            }
             
             // Convert bin indices to grid positions
-            var startX = (startBin.IndexX - minX) * ScaleFactor + (ScaleFactor / 2);
-            var startY = (startBin.IndexY - minY) * ScaleFactor + (ScaleFactor / 2);
-            var endX = (endBin.IndexX - minX) * ScaleFactor + (ScaleFactor / 2);
-            var endY = (endBin.IndexY - minY) * ScaleFactor + (ScaleFactor / 2);
+            var startX = (startBinX - minX) * ScaleFactor + (ScaleFactor / 2);
+            var startY = (startBinY - minY) * ScaleFactor + (ScaleFactor / 2);
+            var endX = (endBinX - minX) * ScaleFactor + (ScaleFactor / 2);
+            var endY = (endBinY - minY) * ScaleFactor + (ScaleFactor / 2);
 
             // Ensure coordinates are within bounds
             if (startX >= 0 && startX < scaledWidth && startY >= 0 && startY < scaledHeight - TextAreaHeight)

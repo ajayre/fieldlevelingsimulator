@@ -252,6 +252,15 @@ namespace ObjGen2
                 };
             }
 
+            var binCoordsElement = cutElement.Element("BinCoordinates");
+            if (binCoordsElement != null && cut.Coordinates != null)
+            {
+                cut.Coordinates.StartBinX = GetIntValue(binCoordsElement, "StartBinX");
+                cut.Coordinates.StartBinY = GetIntValue(binCoordsElement, "StartBinY");
+                cut.Coordinates.EndBinX = GetIntValue(binCoordsElement, "EndBinX");
+                cut.Coordinates.EndBinY = GetIntValue(binCoordsElement, "EndBinY");
+            }
+
             var profileElement = cutElement.Element("Profile");
             if (profileElement != null)
             {
@@ -304,6 +313,15 @@ namespace ObjGen2
                     StopLatitude = GetDoubleValue(coordsElement, "StopLatitude"),
                     StopLongitude = GetDoubleValue(coordsElement, "StopLongitude")
                 };
+            }
+
+            var binCoordsElement = fillElement.Element("BinCoordinates");
+            if (binCoordsElement != null && fill.Coordinates != null)
+            {
+                fill.Coordinates.StartBinX = GetIntValue(binCoordsElement, "StartBinX");
+                fill.Coordinates.StartBinY = GetIntValue(binCoordsElement, "StartBinY");
+                fill.Coordinates.EndBinX = GetIntValue(binCoordsElement, "EndBinX");
+                fill.Coordinates.EndBinY = GetIntValue(binCoordsElement, "EndBinY");
             }
 
             var profileElement = fillElement.Element("Profile");

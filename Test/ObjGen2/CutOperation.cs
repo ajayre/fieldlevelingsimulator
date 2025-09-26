@@ -9,7 +9,6 @@ namespace ObjGen2
         public double DepthM { get; set; }
         public double LengthM { get; set; }
         public double HeadingDeg { get; set; }
-        public List<ProfileEntry> Profile { get; set; } = new List<ProfileEntry>();
         public List<BinOperation> Bins { get; set; } = new List<BinOperation>();
     }
 }

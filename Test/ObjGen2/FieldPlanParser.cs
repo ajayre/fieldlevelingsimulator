@@ -261,19 +261,6 @@ namespace ObjGen2
                 cut.Coordinates.EndBinY = GetIntValue(binCoordsElement, "EndBinY");
             }
 
-            var profileElement = cutElement.Element("Profile");
-            if (profileElement != null)
-            {
-                var profileEntries = profileElement.Elements("ProfileEntry");
-                foreach (var entryElement in profileEntries)
-                {
-                    cut.Profile.Add(new ProfileEntry
-                    {
-                        DistanceM = GetDoubleValue(entryElement, "DistanceM"),
-                        DepthM = GetDoubleValue(entryElement, "DepthM")
-                    });
-                }
-            }
 
             var binsElement = cutElement.Element("Bins");
             if (binsElement != null)
@@ -324,19 +311,6 @@ namespace ObjGen2
                 fill.Coordinates.EndBinY = GetIntValue(binCoordsElement, "EndBinY");
             }
 
-            var profileElement = fillElement.Element("Profile");
-            if (profileElement != null)
-            {
-                var profileEntries = profileElement.Elements("ProfileEntry");
-                foreach (var entryElement in profileEntries)
-                {
-                    fill.Profile.Add(new ProfileEntry
-                    {
-                        DistanceM = GetDoubleValue(entryElement, "DistanceM"),
-                        DepthM = GetDoubleValue(entryElement, "DepthM")
-                    });
-                }
-            }
 
             var binsElement = fillElement.Element("Bins");
             if (binsElement != null)
